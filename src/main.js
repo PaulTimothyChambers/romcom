@@ -1,5 +1,8 @@
 // Create variables targetting the relevant DOM elements here 👇
-
+var coverImage = document.querySelector('img');
+var coverTitle = document.querySelector('h2');
+var descriptor1 = document.querySelector('.tagline-1');
+var descriptor2 = document.querySelector('.tagline-2');
 
 // We've provided a few variables below
 var savedCovers = [
@@ -17,3 +20,20 @@ var currentCover;
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
+
+var newCover = covers[getRandomIndex(covers)];
+var newTitle = titles[getRandomIndex(titles)];
+var newDescrip1 = descriptors[getRandomIndex(descriptors)];
+var newDescrip2 = descriptors[getRandomIndex(descriptors)];
+
+// decide where this goes
+if (newDescrip1 === newDescrip2) {
+  newDescrip2 = descriptors[getRandomIndex(descriptors)];
+}
+
+currentCover = new Cover(newCover, newTitle, newDescrip1, newDescrip2);
+
+coverImage.src = currentCover.cover;
+coverTitle.innerText = currentCover.title;
+descriptor1.innerText = currentCover.tagline1;
+descriptor2.innerText = currentCover.tagline2;
