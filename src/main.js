@@ -17,6 +17,7 @@ var savedCovers = [
 var currentCover;
 
 // Add your event listeners here 👇
+rdmCoverBtn.addEventListener('click', showRdmCover);
 
 // Create your event handlers and other functions here 👇
 
