@@ -24,6 +24,8 @@ var currentCover;
 rdmCoverBtn.addEventListener('click', showRdmCover);
 makeNewBtn.addEventListener('click', switchViewsToForm);
 viewSavedBtn.addEventListener('click', switchViewsToSavedCovers);
+homeBtn.addEventListener('click', switchViewsToHome);
+window.addEventListener('load', showRdmCover);
 
 // Create your event handlers and other functions here 👇
 
@@ -45,8 +47,6 @@ function showRdmCover() {
   descriptor2.innerText = currentCover.tagline2;
 };
 
-showRdmCover();
-
 function switchViewsToForm() {
   homeView.classList.add('hidden');
   savedCoversView.classList.add('hidden');
@@ -65,5 +65,14 @@ function switchViewsToSavedCovers() {
   rdmCoverBtn.classList.add('hidden');
   saveCoverBtn.classList.add('hidden');
   homeBtn.classList.remove('hidden');
-  // makeNewBtn.classList.remove('hidden');
+}
+
+function switchViewsToHome() {
+  homeView.classList.remove('hidden');
+  savedCoversView.classList.add('hidden');
+  makeMyBookView.classList.add('hidden');
+
+  rdmCoverBtn.classList.remove('hidden');
+  saveCoverBtn.classList.remove('hidden');
+  homeBtn.classList.add('hidden');
 }
