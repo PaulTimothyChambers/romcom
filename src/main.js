@@ -18,28 +18,23 @@ var currentCover;
 
 // Add your event listeners here 👇
 
-
 // Create your event handlers and other functions here 👇
 
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
-}
+};
+function showRdmCover() {
+  currentCover = new Cover(covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], descriptors[getRandomIndex(descriptors)]);
+  if (currentCover.tagline1 === currentCover.tagline2) {
+    currentCover.tagline2 = descriptors[getRandomIndex(descriptors)];
+  }
 
-var newCover = covers[getRandomIndex(covers)];
-var newTitle = titles[getRandomIndex(titles)];
-var newDescrip1 = descriptors[getRandomIndex(descriptors)];
-var newDescrip2 = descriptors[getRandomIndex(descriptors)];
+  coverImage.src = currentCover.cover;
+  coverTitle.innerText = currentCover.title;
+  descriptor1.innerText = currentCover.tagline1;
+  descriptor2.innerText = currentCover.tagline2;
+};
 
-// decide where this goes
-if (newDescrip1 === newDescrip2) {
-  newDescrip2 = descriptors[getRandomIndex(descriptors)];
-}
-
-currentCover = new Cover(newCover, newTitle, newDescrip1, newDescrip2);
-
-coverImage.src = currentCover.cover;
-coverTitle.innerText = currentCover.title;
-descriptor1.innerText = currentCover.tagline1;
-descriptor2.innerText = currentCover.tagline2;
+showRdmCover();
