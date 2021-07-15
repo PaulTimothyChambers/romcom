@@ -3,6 +3,12 @@ var coverImage = document.querySelector('img');
 var coverTitle = document.querySelector('h2');
 var descriptor1 = document.querySelector('.tagline-1');
 var descriptor2 = document.querySelector('.tagline-2');
+var homeBtn = document.querySelector('.home-button hidden');
+var rdmCoverBtn = document.querySelector('.random-cover-button');
+var saveCoverBtn = document.querySelector('.save-cover-button');
+var viewSavedBtn = document.querySelector('.view-saved-button');
+var makeNewBtn = document.querySelector('.make-new-button');
+
 
 // We've provided a few variables below
 var savedCovers = [
@@ -11,7 +17,7 @@ var savedCovers = [
 var currentCover;
 
 // Add your event listeners here 👇
-
+rdmCoverBtn.addEventListener('click', showRdmCover);
 
 // Create your event handlers and other functions here 👇
 
@@ -19,21 +25,17 @@ var currentCover;
 // We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
-}
+};
+function showRdmCover() {
+  currentCover = new Cover(covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], descriptors[getRandomIndex(descriptors)]);
+  if (currentCover.tagline1 === currentCover.tagline2) {
+    currentCover.tagline2 = descriptors[getRandomIndex(descriptors)];
+  }
 
-var newCover = covers[getRandomIndex(covers)];
-var newTitle = titles[getRandomIndex(titles)];
-var newDescrip1 = descriptors[getRandomIndex(descriptors)];
-var newDescrip2 = descriptors[getRandomIndex(descriptors)];
+  coverImage.src = currentCover.cover;
+  coverTitle.innerText = currentCover.title;
+  descriptor1.innerText = currentCover.tagline1;
+  descriptor2.innerText = currentCover.tagline2;
+};
 
-// decide where this goes
-if (newDescrip1 === newDescrip2) {
-  newDescrip2 = descriptors[getRandomIndex(descriptors)];
-}
-
-currentCover = new Cover(newCover, newTitle, newDescrip1, newDescrip2);
-
-coverImage.src = currentCover.cover;
-coverTitle.innerText = currentCover.title;
-descriptor1.innerText = currentCover.tagline1;
-descriptor2.innerText = currentCover.tagline2;
+showRdmCover();
