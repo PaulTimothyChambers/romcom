@@ -3,6 +3,12 @@ var coverImage = document.querySelector('img');
 var coverTitle = document.querySelector('h2');
 var descriptor1 = document.querySelector('.tagline-1');
 var descriptor2 = document.querySelector('.tagline-2');
+var homeBtn = document.querySelector('.home-button hidden');
+var rdmCoverBtn = document.querySelector('.random-cover-button');
+var saveCoverBtn = document.querySelector('.save-cover-button');
+var viewSavedBtn = document.querySelector('.view-saved-button');
+var makeNewBtn = document.querySelector('.make-new-button');
+
 
 // We've provided a few variables below
 var savedCovers = [
