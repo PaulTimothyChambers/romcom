@@ -35,7 +35,8 @@ viewSavedBtn.addEventListener('click', switchViewsToSavedCovers);
 homeBtn.addEventListener('click', switchViewsToHome);
 window.addEventListener('load', showRdmCover);
 userBookBtn.addEventListener('click', function() {
-  saveCoverUserInput();
+  saveCoverInput();
+  renderCover();
 });
 
 // Create your event handlers and other functions here 👇
@@ -51,7 +52,10 @@ function showRdmCover() {
   if (currentCover.tagline1 === currentCover.tagline2) {
     currentCover.tagline2 = descriptors[getRandomIndex(descriptors)];
   }
+  renderCover();
+};
 
+function renderCover() {
   coverImage.src = currentCover.cover;
   coverTitle.innerText = currentCover.title;
   descriptor1.innerText = currentCover.tagline1;
@@ -88,7 +92,7 @@ function switchViewsToHome() {
   homeBtn.classList.add('hidden');
 }
 
-function saveCoverUserInput() {
+function saveUserInput() {
   covers.push(userCover.value);
   titles.push(userTitle.value);
   descriptors.push(userDescriptor1.value);
