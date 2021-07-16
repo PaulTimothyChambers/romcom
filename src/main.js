@@ -24,6 +24,7 @@ var userDescriptor2 = document.getElementById('descriptor2');
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
+
 var currentCover;
 
 // Add your event listeners here 👇
@@ -33,6 +34,7 @@ viewSavedBtn.addEventListener('click', switchViewsToSavedCovers);
 homeBtn.addEventListener('click', switchViewsToHome);
 window.addEventListener('load', showRdmCover);
 userBookBtn.addEventListener('click', saveUserInput);
+saveCoverBtn.addEventListener('click', saveUserCover);
 
 
 // Create your event handlers and other functions here 👇
@@ -101,4 +103,12 @@ function saveUserInput() {
     userDescriptor2.value);
   switchViewsToHome();
   renderCover();
+};
+
+function saveUserCover() {
+  event.preventDefault();
+  // var coverNow = currentCover
+  if (!savedCovers.includes(currentCover)) {
+    savedCovers.push(currentCover);
+  }
 };
