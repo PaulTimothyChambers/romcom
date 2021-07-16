@@ -20,8 +20,6 @@ var userTitle = document.getElementById('title');
 var userDescriptor1 = document.getElementById('descriptor1');
 var userDescriptor2 = document.getElementById('descriptor2');
 
-// var userCovers = covers;
-
 // We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
@@ -34,7 +32,7 @@ makeNewBtn.addEventListener('click', switchViewsToForm);
 viewSavedBtn.addEventListener('click', switchViewsToSavedCovers);
 homeBtn.addEventListener('click', switchViewsToHome);
 window.addEventListener('load', showRdmCover);
-userBookBtn.addEventListener('click', saveCoverInput);
+userBookBtn.addEventListener('click', saveUserInput);
 
 
 // Create your event handlers and other functions here 👇
@@ -68,7 +66,7 @@ function switchViewsToForm() {
   rdmCoverBtn.classList.add('hidden');
   saveCoverBtn.classList.add('hidden');
   homeBtn.classList.remove('hidden');
-}
+};
 
 function switchViewsToSavedCovers() {
   homeView.classList.add('hidden');
@@ -78,7 +76,7 @@ function switchViewsToSavedCovers() {
   rdmCoverBtn.classList.add('hidden');
   saveCoverBtn.classList.add('hidden');
   homeBtn.classList.remove('hidden');
-}
+};
 
 function switchViewsToHome() {
   homeView.classList.remove('hidden');
@@ -88,7 +86,7 @@ function switchViewsToHome() {
   rdmCoverBtn.classList.remove('hidden');
   saveCoverBtn.classList.remove('hidden');
   homeBtn.classList.add('hidden');
-}
+};
 
 function saveUserInput() {
   event.preventDefault();
@@ -103,4 +101,4 @@ function saveUserInput() {
     userDescriptor2.value);
   switchViewsToHome();
   renderCover();
-}
+};
