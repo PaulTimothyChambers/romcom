@@ -9,10 +9,18 @@ var rdmCoverBtn = document.querySelector('.random-cover-button');
 var saveCoverBtn = document.querySelector('.save-cover-button');
 var viewSavedBtn = document.querySelector('.view-saved-button');
 var makeNewBtn = document.querySelector('.make-new-button');
+var userBookBtn = document.querySelector('.create-new-book-button');
 
 var homeView = document.querySelector('.home-view');
 var makeMyBookView = document.querySelector('.form-view');
 var savedCoversView = document.querySelector('.saved-view');
+
+var userCover = document.getElementById('cover');
+var userTitle = document.getElementById('title');
+var userDescriptor1 = document.getElementById('descriptor1');
+var userDescriptor2 = document.getElementById('descriptor2');
+
+// var userCovers = covers;
 
 // We've provided a few variables below
 var savedCovers = [
@@ -26,6 +34,8 @@ makeNewBtn.addEventListener('click', switchViewsToForm);
 viewSavedBtn.addEventListener('click', switchViewsToSavedCovers);
 homeBtn.addEventListener('click', switchViewsToHome);
 window.addEventListener('load', showRdmCover);
+userBookBtn.addEventListener('click', saveCoverInput);
+
 
 // Create your event handlers and other functions here 👇
 
@@ -40,7 +50,10 @@ function showRdmCover() {
   if (currentCover.tagline1 === currentCover.tagline2) {
     currentCover.tagline2 = descriptors[getRandomIndex(descriptors)];
   }
+  renderCover();
+};
 
+function renderCover() {
   coverImage.src = currentCover.cover;
   coverTitle.innerText = currentCover.title;
   descriptor1.innerText = currentCover.tagline1;
@@ -75,4 +88,19 @@ function switchViewsToHome() {
   rdmCoverBtn.classList.remove('hidden');
   saveCoverBtn.classList.remove('hidden');
   homeBtn.classList.add('hidden');
+}
+
+function saveUserInput() {
+  event.preventDefault();
+  covers.push(userCover.value);
+  titles.push(userTitle.value);
+  descriptors.push(userDescriptor1.value);
+  descriptors.push(userDescriptor2.value);
+  currentCover = new Cover(
+    userCover.value,
+    userTitle.value,
+    userDescriptor1.value,
+    userDescriptor2.value);
+  switchViewsToHome();
+  renderCover();
 }
