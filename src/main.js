@@ -20,6 +20,11 @@ var userTitle = document.getElementById('title');
 var userDescriptor1 = document.getElementById('descriptor1');
 var userDescriptor2 = document.getElementById('descriptor2');
 
+var viewSavedCovers = document.querySelector('.saved-covers-section')
+
+//put inside func
+viewSavedCovers.innerHTML = "<img class='mini-cover' src=''>"
+
 // We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
@@ -111,4 +116,5 @@ function saveUserCover() {
   if (!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
   }
+
 };
