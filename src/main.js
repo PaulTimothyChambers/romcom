@@ -34,10 +34,8 @@ makeNewBtn.addEventListener('click', switchViewsToForm);
 viewSavedBtn.addEventListener('click', switchViewsToSavedCovers);
 homeBtn.addEventListener('click', switchViewsToHome);
 window.addEventListener('load', showRdmCover);
-userBookBtn.addEventListener('click', function() {
-  saveCoverInput();
-  renderCover();
-});
+userBookBtn.addEventListener('click', saveCoverInput);
+
 
 // Create your event handlers and other functions here 👇
 
@@ -93,6 +91,7 @@ function switchViewsToHome() {
 }
 
 function saveUserInput() {
+  event.preventDefault();
   covers.push(userCover.value);
   titles.push(userTitle.value);
   descriptors.push(userDescriptor1.value);
@@ -102,4 +101,6 @@ function saveUserInput() {
     userTitle.value,
     userDescriptor1.value,
     userDescriptor2.value);
+  switchViewsToHome();
+  renderCover();
 }
