@@ -1,4 +1,5 @@
-var coverImage = document.querySelector('img');
+
+var coverImage = document.querySelector('.cover-image');
 var coverTitle = document.querySelector('h2');
 var descriptor1 = document.querySelector('.tagline-1');
 var descriptor2 = document.querySelector('.tagline-2');
@@ -17,7 +18,7 @@ var userDescriptor1 = document.getElementById('descriptor1');
 var userDescriptor2 = document.getElementById('descriptor2');
 var viewSavedCovers = document.querySelector('.saved-covers-section')
 var savedCovers = [
-  new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
+  // new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
 var currentCover;
 
@@ -28,9 +29,7 @@ homeBtn.addEventListener('click', switchViewsToHome);
 window.addEventListener('load', showRdmCover);
 userBookBtn.addEventListener('click', saveUserInput);
 saveCoverBtn.addEventListener('click', saveCover);
-// viewSavedCovers.addEventListener('ondblclick', function() {
-//   deleteCover(this)
-// })
+viewSavedCovers.addEventListener('dblclick', removeElement);
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -98,7 +97,7 @@ function displaySavedCovers() {
   viewSavedCovers.innerHTML = ""
   for (var i=0; i < savedCovers.length; i++) {
     viewSavedCovers.innerHTML += `
-      <section class='mini-cover' ondblclick="deleteCover(this)">
+      <section class='mini-cover' id=${savedCovers[i].id} ondblclick='deleteCover(this)'>
         <img class='cover-image' src=${savedCovers[i].cover}>
         <h2 class='cover-title'>${savedCovers[i].title}</h2>
         <h3 class='tagline'> A tale of <span class='tagline-1'>${savedCovers[i].tagline1}</span> and <span class='tagline-2'>${savedCovers[i].tagline2}</span></h3>
@@ -106,7 +105,12 @@ function displaySavedCovers() {
         <img class='overlay' src='./assets/overlay.png'>
       </section>
     `
+    var coverSection = document.getElementById(`${savedCovers[i].id}`);
+    coverSection.addEventListener('dblclick', function() {
+      deleteCover(`${savedCovers[i]}`)
+    });
   }
+  // return savedCovers;
 };
 
 function saveCover() {
@@ -117,4 +121,6 @@ function saveCover() {
 
 function deleteCover(element) {
   element.remove();
+  savedCovers.splice(savedCovers.indexOf[element.id], 1)
+  return savedCovers;
 };
