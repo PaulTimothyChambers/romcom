@@ -96,7 +96,7 @@ function switchViewsToHome() {
 };
 
 function saveUserInput() {
-  event.preventDefault();
+  // event.preventDefault();
   covers.push(userCover.value);
   titles.push(userTitle.value);
   descriptors.push(userDescriptor1.value);
@@ -114,7 +114,7 @@ function displaySavedCovers() {
   viewSavedCovers.innerHTML = ""
   for (var i=0; i < savedCovers.length; i++) {
     viewSavedCovers.innerHTML += `
-      <section class='mini-cover'>
+      <section class='mini-cover' ondblclick="deleteCover(this)">
         <img class='cover-image' src=${savedCovers[i].cover}>
         <h2 class='cover-title'>${savedCovers[i].title}</h2>
         <h3 class='tagline'> A tale of <span class='tagline-1'>${savedCovers[i].tagline1}</span> and <span class='tagline-2'>${savedCovers[i].tagline2}</span></h3>
@@ -130,4 +130,8 @@ function saveUserCover() {
   if (!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
   }
+};
+
+function deleteCover(element) {
+  element.remove();
 };
