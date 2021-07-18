@@ -24,11 +24,11 @@ var savedCoversSection = document.querySelector('.saved-covers-section');
 var savedCovers = [];
 var currentCover;
 
-buttonRandomCover.addEventListener('click', showRdmCover);
-buttonMakeNewCover.addEventListener('click', switchViewsToForm);
-buttonViewSavedCovers.addEventListener('click', switchViewsToSavedCovers);
-buttonHome.addEventListener('click', switchViewsToHome);
 window.addEventListener('load', showRdmCover);
+buttonRandomCover.addEventListener('click', showRandomCover);
+buttonMakeNewCover.addEventListener('click', switchViewToMakeNewBook);
+buttonViewSavedCovers.addEventListener('click', switchViewToSavedCovers);
+buttonHome.addEventListener('click', switchViewToHome);
 buttonMakeMyBook.addEventListener('click', saveUserInput);
 buttonSaveCover.addEventListener('click', saveCover);
 savedCoversSection.addEventListener('dblclick', deleteCover);
@@ -37,7 +37,7 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
 
-function showRdmCover() {
+function showRandomCover() {
   currentCover = new Cover(covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], descriptors[getRandomIndex(descriptors)]);
   if (currentCover.tagline1 === currentCover.tagline2) {
     currentCover.tagline2 = descriptors[getRandomIndex(descriptors)];
@@ -52,7 +52,7 @@ function renderCover() {
   descriptor2.innerText = currentCover.tagline2;
 };
 
-function switchViewsToForm() {
+function switchViewToMakeNewBook() {
   homeView.classList.add('hidden');
   savedCoversView.classList.add('hidden');
   makeMyBookView.classList.remove('hidden');
@@ -61,7 +61,7 @@ function switchViewsToForm() {
   buttonHome.classList.remove('hidden');
 };
 
-function switchViewsToSavedCovers() {
+function switchViewToSavedCovers() {
   homeView.classList.add('hidden');
   savedCoversView.classList.remove('hidden');
   makeMyBookView.classList.add('hidden');
@@ -71,7 +71,7 @@ function switchViewsToSavedCovers() {
   displaySavedCovers();
 };
 
-function switchViewsToHome() {
+function switchViewToHome() {
   homeView.classList.remove('hidden');
   savedCoversView.classList.add('hidden');
   makeMyBookView.classList.add('hidden');
@@ -91,7 +91,7 @@ function saveUserInput() {
     userTitle.value,
     userDescriptor1.value,
     userDescriptor2.value);
-  switchViewsToHome();
+  switchViewToHome();
   renderCover();
 };
 
