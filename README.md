@@ -7,7 +7,7 @@
   - [Abstract](#abstract)
   - [Technologies](#technologies)
   - [Illustrations](#illustrations)
-  - [Install + Setup](#set-up)
+  - [Access to Project](#access-to-project)
   - [Contributors](#contributors)
 	- [Wins](#wins)
 	- [Challenges + Improvements](#challenges-+-Improvements)
