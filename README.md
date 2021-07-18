@@ -30,7 +30,7 @@
 
 ## Access to Project
 
-	* [Click Here for Published Project](https://paultimothychambers.github.com/romcom/)
+	* [Click Here for Published Project](https://paultimothychambers.github/romcom/)
 
 ## Contributors
 
