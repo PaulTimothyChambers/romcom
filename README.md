@@ -30,7 +30,7 @@
 
 ## Install + Setup
 
-	* [Click Here for Published Project](https://paultimothychambers.github/romcom/)
+	* [Click Here for Published Project](https://paultimothychambers.github/romcom)
 
 ## Contributors
 
