@@ -24,7 +24,7 @@ var savedCoversSection = document.querySelector('.saved-covers-section');
 var savedCovers = [];
 var currentCover;
 
-window.addEventListener('load', showRdmCover);
+window.addEventListener('load', showRandomCover);
 buttonRandomCover.addEventListener('click', showRandomCover);
 buttonMakeNewCover.addEventListener('click', switchViewToMakeNewBook);
 buttonViewSavedCovers.addEventListener('click', switchViewToSavedCovers);
