@@ -24,7 +24,8 @@
 ![RomComImgs](https://i.imgur.com/7CCZ5Jv.png)
 
 ## Install + Setup
-	- Click [Here](https://paultimothychambers.github.io/romcom/) for Published Project
+	- [Click Here for Published Project](https://paultimothychambers.github.io/romcom/) 
+
 ## Contributors
   - [Natalia Zamboni Vergara](https://github.com/nzambonivergara)
   - [Paul Timothy Chambers](https://github.com/PaulTimothyChambers)
