@@ -10,7 +10,7 @@
   - [Access to Project](#access-to-project)
   - [Contributors](#contributors)
 	- [Wins](#wins)
-	- [Challenges + Improvements](#challenges-+-Improvements)
+	- [Challenges + Improvements](#challenges-+-improvements)
   - [Project Specs](#project-specs)
 
 ## Abstract
