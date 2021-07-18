@@ -1,13 +1,46 @@
-# RomCom
+#RomCom Group Project (Turing School of Software and Design)
+###(Turing School of Software and Design)
 
-A boilerplate repo. 
+## Table of Contents
+  - [Abstract](#abstract)
+  - [Technologies](#technologies)
+  - [Illustrations](#illustrations)
+  - [Install + Setup](#set-up)
+  - [Contributors](#contributors)
+	- [Wins](#wins)
+	- [Challenges + Improvements](#challenges-+-Improvements)
+  - [Project Specs](#project-specs)
 
-## Set Up
-1. ONE teammate: fork this boilerplate repository 
-2. Clone down your new, forked repo
-3. cd into the repository
-4. Open it in your text editor
-5. View the project in the browser by running open index.html in your terminal
-6. Add all project partners and your assigned instructor as collaborators on the repository
+## Abstract
+	- Utilize Javascript to manipulate the HTML elements on a webpage for displaying/
+     saving randomized, romantic novel covers, including functionality allowing  users to create/save their own, custom novel covers.
 
-The project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/romcom-pair.html)
+## Technologies
+  - Javascript
+  - Atom
+
+## Illustrations
+![RomComImgs](https://i.imgur.com/ee2uGdT.png)
+![RomComImgs](https://i.imgur.com/7CCZ5Jv.png)
+
+## Install + Setup
+	- Click [Here](https://paultimothychambers.github.io/romcom/) for Published Project
+## Contributors
+  - [Natalia Zamboni Vergara](https://github.com/nzambonivergara)
+  - [Paul Timothy Chambers](https://github.com/PaulTimothyChambers)
+
+## Wins
+	- All iterations finished!
+	- Asked for help when stuck for too long
+
+## Challenges + Improvements
+	- Lost overlay; it now displays to the side of all book covers
+	- Future Iterations:
+      * Error Handling
+      * Saved data persists on reload
+      * When a user single clicks a saved cover, create a modal to view it larger
+      * Allow users to drag and drop saved posters into whatever order they want  
+        them to appear
+
+## Project Specs
+  - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-1/romcom-pair.html)
