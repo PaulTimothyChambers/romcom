@@ -1,5 +1,6 @@
-#RomCom Group Project (Turing School of Software and Design)
-###(Turing School of Software and Design)
+# RomCom Group Project
+
+### (Turing School of Software and Design)
 
 ## Table of Contents
   - [Abstract](#abstract)
