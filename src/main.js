@@ -1,33 +1,37 @@
-
 var coverImage = document.querySelector('.cover-image');
 var title = document.querySelector('h2');
 var descriptor1 = document.querySelector('.tagline-1');
 var descriptor2 = document.querySelector('.tagline-2');
-var homeBtn = document.querySelector('.home-button');
-var rdmCoverBtn = document.querySelector('.random-cover-button');
-var saveCoverBtn = document.querySelector('.save-cover-button');
-var viewSavedBtn = document.querySelector('.view-saved-button');
-var makeNewBtn = document.querySelector('.make-new-button');
-var userBookBtn = document.querySelector('.create-new-book-button');
+
+var buttonHome = document.querySelector('.home-button');
+var buttonRandomCover = document.querySelector('.random-cover-button');
+var buttonSaveCover = document.querySelector('.save-cover-button');
+var buttonViewSavedCovers = document.querySelector('.view-saved-button');
+var buttonMakeNewCover = document.querySelector('.make-new-button');
+var buttonMakeMyBook = document.querySelector('.create-new-book-button');
+
 var homeView = document.querySelector('.home-view');
 var makeMyBookView = document.querySelector('.form-view');
 var savedCoversView = document.querySelector('.saved-view');
+
 var userCover = document.querySelector('#cover');
 var userTitle = document.querySelector('#title');
 var userDescriptor1 = document.querySelector('#descriptor1');
 var userDescriptor2 = document.querySelector('#descriptor2');
-var viewSavedCovers = document.querySelector('.saved-covers-section')
+
+var savedCoversSection = document.querySelector('.saved-covers-section');
+
 var savedCovers = [];
 var currentCover;
 
-rdmCoverBtn.addEventListener('click', showRdmCover);
-makeNewBtn.addEventListener('click', switchViewsToForm);
-viewSavedBtn.addEventListener('click', switchViewsToSavedCovers);
-homeBtn.addEventListener('click', switchViewsToHome);
+buttonRandomCover.addEventListener('click', showRdmCover);
+buttonMakeNewCover.addEventListener('click', switchViewsToForm);
+buttonViewSavedCovers.addEventListener('click', switchViewsToSavedCovers);
+buttonHome.addEventListener('click', switchViewsToHome);
 window.addEventListener('load', showRdmCover);
-userBookBtn.addEventListener('click', saveUserInput);
-saveCoverBtn.addEventListener('click', saveCover);
-viewSavedCovers.addEventListener('dblclick', deleteCover);
+buttonMakeMyBook.addEventListener('click', saveUserInput);
+buttonSaveCover.addEventListener('click', saveCover);
+savedCoversSection.addEventListener('dblclick', deleteCover);
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -52,18 +56,18 @@ function switchViewsToForm() {
   homeView.classList.add('hidden');
   savedCoversView.classList.add('hidden');
   makeMyBookView.classList.remove('hidden');
-  rdmCoverBtn.classList.add('hidden');
-  saveCoverBtn.classList.add('hidden');
-  homeBtn.classList.remove('hidden');
+  buttonRandomCover.classList.add('hidden');
+  buttonSaveCover.classList.add('hidden');
+  buttonHome.classList.remove('hidden');
 };
 
 function switchViewsToSavedCovers() {
   homeView.classList.add('hidden');
   savedCoversView.classList.remove('hidden');
   makeMyBookView.classList.add('hidden');
-  rdmCoverBtn.classList.add('hidden');
-  saveCoverBtn.classList.add('hidden');
-  homeBtn.classList.remove('hidden');
+  buttonRandomCover.classList.add('hidden');
+  buttonSaveCover.classList.add('hidden');
+  buttonHome.classList.remove('hidden');
   displaySavedCovers();
 };
 
@@ -71,9 +75,9 @@ function switchViewsToHome() {
   homeView.classList.remove('hidden');
   savedCoversView.classList.add('hidden');
   makeMyBookView.classList.add('hidden');
-  rdmCoverBtn.classList.remove('hidden');
-  saveCoverBtn.classList.remove('hidden');
-  homeBtn.classList.add('hidden');
+  buttonRandomCover.classList.remove('hidden');
+  buttonSaveCover.classList.remove('hidden');
+  buttonHome.classList.add('hidden');
 };
 
 function saveUserInput() {
@@ -92,9 +96,9 @@ function saveUserInput() {
 };
 
 function displaySavedCovers() {
-  viewSavedCovers.innerHTML = "";
+  savedCoversSection.innerHTML = "";
   for (var i=0; i<savedCovers.length; i++) {
-    viewSavedCovers.innerHTML += `
+    savedCoversSection.innerHTML += `
       <section class='mini-cover' id=${savedCovers[i].id}>
         <img class='cover-image' src=${savedCovers[i].cover}>
         <h2 class='cover-title'>${savedCovers[i].title}</h2>
