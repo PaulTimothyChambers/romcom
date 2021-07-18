@@ -28,9 +28,9 @@
   ![RomComImgs](https://i.imgur.com/ee2uGdT.png)
   ![RomComImgs](https://i.imgur.com/7CCZ5Jv.png)
 
-## Install + Setup
+## Access to Project
 
-	* [Click Here for Published Project](https://paultimothychambers.github/romcom)
+	* [Click Here for Published Project](https://paultimothychambers.github.com/romcom/)
 
 ## Contributors
 
