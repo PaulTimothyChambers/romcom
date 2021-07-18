@@ -1,6 +1,6 @@
 
 var coverImage = document.querySelector('.cover-image');
-var coverTitle = document.querySelector('h2');
+var title = document.querySelector('h2');
 var descriptor1 = document.querySelector('.tagline-1');
 var descriptor2 = document.querySelector('.tagline-2');
 var homeBtn = document.querySelector('.home-button');
@@ -12,10 +12,10 @@ var userBookBtn = document.querySelector('.create-new-book-button');
 var homeView = document.querySelector('.home-view');
 var makeMyBookView = document.querySelector('.form-view');
 var savedCoversView = document.querySelector('.saved-view');
-var userCover = document.getElementById('cover');
-var userTitle = document.getElementById('title');
-var userDescriptor1 = document.getElementById('descriptor1');
-var userDescriptor2 = document.getElementById('descriptor2');
+var userCover = document.querySelector('#cover');
+var userTitle = document.querySelector('#title');
+var userDescriptor1 = document.querySelector('#descriptor1');
+var userDescriptor2 = document.querySelector('#descriptor2');
 var viewSavedCovers = document.querySelector('.saved-covers-section')
 var savedCovers = [];
 var currentCover;
@@ -43,7 +43,7 @@ function showRdmCover() {
 
 function renderCover() {
   coverImage.src = currentCover.cover;
-  coverTitle.innerText = currentCover.title;
+  title.innerText = currentCover.title;
   descriptor1.innerText = currentCover.tagline1;
   descriptor2.innerText = currentCover.tagline2;
 };
