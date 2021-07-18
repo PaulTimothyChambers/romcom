@@ -17,9 +17,7 @@ var userTitle = document.getElementById('title');
 var userDescriptor1 = document.getElementById('descriptor1');
 var userDescriptor2 = document.getElementById('descriptor2');
 var viewSavedCovers = document.querySelector('.saved-covers-section')
-var savedCovers = [
-  // new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
-];
+var savedCovers = [];
 var currentCover;
 
 rdmCoverBtn.addEventListener('click', showRdmCover);
@@ -29,7 +27,7 @@ homeBtn.addEventListener('click', switchViewsToHome);
 window.addEventListener('load', showRdmCover);
 userBookBtn.addEventListener('click', saveUserInput);
 saveCoverBtn.addEventListener('click', saveCover);
-viewSavedCovers.addEventListener('dblclick', removeElement);
+viewSavedCovers.addEventListener('dblclick', deleteCover);
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -94,23 +92,18 @@ function saveUserInput() {
 };
 
 function displaySavedCovers() {
-  viewSavedCovers.innerHTML = ""
-  for (var i=0; i < savedCovers.length; i++) {
+  viewSavedCovers.innerHTML = "";
+  for (var i=0; i<savedCovers.length; i++) {
     viewSavedCovers.innerHTML += `
-      <section class='mini-cover' id=${savedCovers[i].id} ondblclick='deleteCover(this)'>
+      <section class='mini-cover' id=${savedCovers[i].id}>
         <img class='cover-image' src=${savedCovers[i].cover}>
         <h2 class='cover-title'>${savedCovers[i].title}</h2>
         <h3 class='tagline'> A tale of <span class='tagline-1'>${savedCovers[i].tagline1}</span> and <span class='tagline-2'>${savedCovers[i].tagline2}</span></h3>
         <img class='price-tag' src='./assets/price.png'>
         <img class='overlay' src='./assets/overlay.png'>
       </section>
-    `
-    var coverSection = document.getElementById(`${savedCovers[i].id}`);
-    coverSection.addEventListener('dblclick', function() {
-      deleteCover(`${savedCovers[i]}`)
-    });
+    `;
   }
-  // return savedCovers;
 };
 
 function saveCover() {
@@ -120,7 +113,10 @@ function saveCover() {
 };
 
 function deleteCover(element) {
-  element.remove();
-  savedCovers.splice(savedCovers.indexOf[element.id], 1)
-  return savedCovers;
+  for (var i=0; i<savedCovers.length; i++) {
+    if (element.target.parentNode.id == savedCovers[i].id) {
+      savedCovers.splice(i, 1);
+    }
+  }
+  displaySavedCovers();
 };
