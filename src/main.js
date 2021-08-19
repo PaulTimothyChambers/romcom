@@ -35,50 +35,64 @@ savedCoversSection.addEventListener('dblclick', deleteCover);
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
-};
+}
+
+function show(element) {
+  element.classList.remove('hidden');
+}
+
+function hide(element) {
+  element.classList.add('hidden');
+}
 
 function showRandomCover() {
-  currentCover = new Cover(covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], descriptors[getRandomIndex(descriptors)]);
+  currentCover = new Cover(
+    covers[getRandomIndex(covers)],
+    titles[getRandomIndex(titles)],
+    descriptors[getRandomIndex(descriptors)],
+    descriptors[getRandomIndex(descriptors)]);
   if (currentCover.tagline1 === currentCover.tagline2) {
     currentCover.tagline2 = descriptors[getRandomIndex(descriptors)];
   }
+
   renderCover();
-};
+}
 
 function renderCover() {
   coverImage.src = currentCover.cover;
   title.innerText = currentCover.title;
   descriptor1.innerText = currentCover.tagline1;
   descriptor2.innerText = currentCover.tagline2;
-};
+}
 
 function switchViewToMakeNewBook() {
-  homeView.classList.add('hidden');
-  savedCoversView.classList.add('hidden');
-  makeMyBookView.classList.remove('hidden');
-  buttonRandomCover.classList.add('hidden');
-  buttonSaveCover.classList.add('hidden');
-  buttonHome.classList.remove('hidden');
-};
+  hide(homeView);
+  hide(savedCoversView);
+  show(makeMyBookView);
+  hide(buttonRandomCover);
+  hide(buttonSaveCover);
+  show(buttonHome);
+}
 
 function switchViewToSavedCovers() {
-  homeView.classList.add('hidden');
-  savedCoversView.classList.remove('hidden');
-  makeMyBookView.classList.add('hidden');
-  buttonRandomCover.classList.add('hidden');
-  buttonSaveCover.classList.add('hidden');
-  buttonHome.classList.remove('hidden');
+  hide(homeView);
+  show(savedCoversView);
+  hide(makeMyBookView);
+  hide(buttonRandomCover);
+  hide(buttonSaveCover);
+  show(buttonHome);
+
   displaySavedCovers();
-};
+}
 
 function switchViewToHome() {
-  homeView.classList.remove('hidden');
-  savedCoversView.classList.add('hidden');
-  makeMyBookView.classList.add('hidden');
-  buttonRandomCover.classList.remove('hidden');
-  buttonSaveCover.classList.remove('hidden');
-  buttonHome.classList.add('hidden');
-};
+  show(homeView);
+  hide(savedCoversView);
+  hide(makeMyBookView);
+  show(buttonRandomCover);
+  show(buttonSaveCover);
+  hide(buttonHome);
+}
 
 function saveUserInput() {
   event.preventDefault();
@@ -91,13 +105,14 @@ function saveUserInput() {
     userTitle.value,
     userDescriptor1.value,
     userDescriptor2.value);
+
   switchViewToHome();
   renderCover();
-};
+}
 
 function displaySavedCovers() {
   savedCoversSection.innerHTML = "";
-  for (var i=0; i<savedCovers.length; i++) {
+  for (var i = 0; i < savedCovers.length; i++) {
     savedCoversSection.innerHTML += `
       <section class='mini-cover' id=${savedCovers[i].id}>
         <img class='cover-image' src=${savedCovers[i].cover}>
@@ -108,19 +123,20 @@ function displaySavedCovers() {
       </section>
     `;
   }
-};
+}
 
 function saveCover() {
   if (!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
   }
-};
+}
 
 function deleteCover(element) {
-  for (var i=0; i<savedCovers.length; i++) {
-    if (element.target.parentNode.id == savedCovers[i].id) {
-      savedCovers.splice(i, 1);
+  savedCovers.forEach(savedCover => {
+    if (parseInt(element.target.parentNode.id) === savedCover.id) {
+      savedCovers.splice(savedCovers.indexOf(savedCover), 1);
     }
-  }
+  });
+
   displaySavedCovers();
-};
+}
